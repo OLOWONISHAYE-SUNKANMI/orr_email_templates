@@ -67,6 +67,12 @@ Internal monitoring and security escalation.
 - `34-security-alert.html`
 - `35-access-revoked.html`
 
+### 8. Admin & Governance
+Supports oversight, control, and sensitive operations.
+- `36-admin-approval-request.html`
+- `37-admin-approval-status.html`
+- `38-role-change-notification.html`
+
 ## 🛠 Integration Notes
 
 - **Variables**: All templates use standard `{{variable_name}}` placeholders.
