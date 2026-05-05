@@ -73,6 +73,12 @@ Supports oversight, control, and sensitive operations.
 - `37-admin-approval-status.html`
 - `38-role-change-notification.html`
 
+### 9. Marketing & Engagement (Sanity CMS)
+Growth-focused communication and feature announcements.
+- `39-newsletter-blog-update.html`
+- `40-feature-announcement.html`
+- `41-reengagement-alert.html`
+
 ## 🛠 Integration Notes
 
 - **Variables**: All templates use standard `{{variable_name}}` placeholders.
