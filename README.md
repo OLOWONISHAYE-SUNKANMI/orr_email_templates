@@ -1,67 +1,70 @@
-# ORR Solutions Premium Email Template Suite
+# ORR Solutions Email Template Suite
 
-A comprehensive collection of 31 premium, responsive HTML email templates designed specifically for the ORR Solutions automation engine. These templates are optimized for high cross-client compatibility and adhere strictly to the brand's sophisticated design system.
+A collection of 31 premium, responsive, and data-driven HTML email templates designed for the ORR Solutions automation engine. These templates are optimized for cross-client compatibility and strict adherence to the ORR brand design system.
 
 ## 🎨 Design System
-- **Background**: Dark Navy (`#0d223c`)
-- **Accent**: Emerald Green (`#0EC277`)
-- **Typography**: Inter / Sans-serif
-- **Aesthetic**: Modern, high-contrast, professional, and data-driven.
 
-## 📦 Template Categories
+- **Background**: Dark Navy (`#0d223c`)
+- **Primary Accent**: Emerald Green (`#0EC277`)
+- **Typography**: Inter / System Sans-Serif
+- **Visual Style**: Modern, high-contrast, data-centric with premium gradients and glassmorphism-inspired elements.
+
+## 📁 Template Categories
 
 ### 1. Authentication & Onboarding
-- `01-email-verification.html` - Secure OTP/Verification
-- `02-password-reset.html` - Account recovery
-- `03-login-alert.html` - Security notification
-- `04-welcome-email.html` - Brand introduction
-- `05-onboarding-completion.html` - Welcome to workspace
-- `06-workspace-setup.html` - Setup instructions
+Essential templates for user lifecycle management.
+- `01-email-verification.html`
+- `02-password-reset.html`
+- `03-login-alert.html`
+- `04-welcome-email.html`
+- `05-onboarding-completion.html`
+- `06-workspace-setup.html`
 
-### 2. Workflow & Form Automation
-- `07-form-confirmation.html` - Client submission receipt
-- `08-admin-notification.html` - Internal team alert
-- `09-status-update.html` - Dynamic progress tracking (with fallback progress bar)
-- `10-action-required.html` - High-priority intervention alert
+### 2. Workflow & Form Submission
+Core automation notifications for client interactions.
+- `07-form-confirmation.html`
+- `08-admin-notification.html`
+- `09-status-update.html`
+- `10-action-required.html`
 
 ### 3. Document Automation & Vault
-- `11-document-generated.html` - Automated document creation
-- `12-document-review.html` - Draft review request
-- `13-document-approved.html` - Finalization confirmation
-- `14-document-rejected.html` - Revision feedback
-- `15-document-access.html` - Permission grant notification
+Deep integration with Google Docs and secure storage.
+- `11-document-generated.html`
+- `12-document-review.html`
+- `13-document-approved.html`
+- `14-document-rejected.html`
+- `15-document-access.html`
 
 ### 4. Payments & Billing (Stripe)
-- `16-payment-success.html` - Receipt & confirmation
-- `17-payment-failed.html` - Payment issue alert
-- `18-invoice-generated.html` - New billing notice
-- `19-invoice-reminder.html` - Due date follow-up
-- `20-subscription-update.html` - Plan change confirmation
-- `21-wallet-topup.html` - Credit funding confirmation
+Financial transparency and automated invoicing alerts.
+- `16-payment-success.html`
+- `17-payment-failed.html`
+- `18-invoice-generated.html`
+- `19-invoice-reminder.html`
+- `20-subscription-update.html`
+- `21-wallet-topup.html`
 
 ### 5. Consultant Workflow
-- `22-task-assignment.html` - New project task
-- `23-task-reminder.html` - Deadline approaching
-- `24-task-completion.html` - Submission receipt
-- `25-consultant-invoice-confirm.html` - Payout request receipt
-- `26-consultant-invoice-status.html` - Approval/Rejection notice
-- `27-consultant-payout.html` - Funds disbursement notification
+Operational templates for project contributors and managers.
+- `22-task-assignment.html`
+- `23-task-reminder.html`
+- `24-task-completion.html`
+- `25-consultant-invoice-confirm.html`
+- `26-consultant-invoice-status.html`
+- `27-consultant-payout.html`
 
 ### 6. Meetings & Scheduling
-- `28-meeting-scheduled.html` - Calendar confirmation
-- `29-meeting-reminder.html` - Pre-meeting alert
-- `30-meeting-rescheduled.html` - Time update notification
-- `31-meeting-cancelled.html` - Event cancellation
+Calendar synchronization and Google Meet integration.
+- `28-meeting-scheduled.html`
+- `29-meeting-reminder.html`
+- `30-meeting-rescheduled.html`
+- `31-meeting-cancelled.html`
 
-## 🚀 Key Features
-- **Responsive Design**: Fluid layouts that look stunning on mobile, tablet, and desktop.
-- **Brand Integrated**: Features the official SVG logo (`120px` width) across all communications.
-- **IDE Validated**: Uses CSS Variables (`var()`) to maintain dynamic template functionality while bypassing strict editor validation errors.
-- **Email Safe**: Built-in fallbacks for properties like `width` and `display` to ensure compatibility with older Outlook versions.
-- **Workflow Ready**: Designed to be triggered by n8n, Stripe, and custom backend automation engines.
+## 🛠 Integration Notes
 
-## 🛠 Usage
-All templates use the `{{variable_name}}` syntax, making them compatible with most modern template engines (Mustache, Handlebars, Nunjucks, etc.).
+- **Variables**: All templates use standard `{{variable_name}}` placeholders.
+- **Responsiveness**: Tested for mobile, tablet, and desktop viewports.
+- **CSS Validation**: Uses CSS Variables (`--name`) and fallback properties to ensure high IDE compatibility while maintaining template flexibility.
 
 ---
-*© 2026 ORR Solutions. All rights reserved.*
+*© 2026 ORR Solutions Operations Team*
