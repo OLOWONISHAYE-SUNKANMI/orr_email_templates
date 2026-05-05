@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Status Update - ORR Solutions</title>
+    <title>Invoice Reminder - ORR Solutions</title>
     <style>
         body {
             margin: 0;
@@ -26,12 +26,12 @@
             background-color: #204460;
             border-radius: 16px;
             overflow: hidden;
-            border: 1px solid rgba(14, 194, 119, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2); /* Orange accent for reminder */
         }
 
         .header {
-            background: linear-gradient(135deg, #28b026 0%, #03f6ca 100%);
-            padding: 40px 20px;
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            padding: 30px 20px;
             text-align: center;
         }
 
@@ -48,70 +48,30 @@
             color: #94a3b8;
         }
 
-        .status-badge {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #0A1F30;
-            border: 1px solid #0EC277;
-            color: #0EC277;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 16px;
-            margin: 20px 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .progress-container {
-            margin: 30px 0;
-            padding: 20px;
+        .reminder-box {
             background-color: #0A1F30;
             border-radius: 12px;
-        }
-
-        .progress-bar {
-            height: 8px;
-            background-color: #1e293b;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-bottom: 10px;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background-color: #0EC277;
-            border-radius: 4px;
-        }
-
-        .step-label {
-            display: inline-block;
-            width: 32%;
-            font-size: 11px;
-            color: #64748b;
-            text-transform: uppercase;
-        }
-
-        .step-active {
-            color: #0EC277;
-            font-weight: bold;
+            padding: 20px;
+            margin: 25px 0;
+            border: 1px solid #f59e0b;
         }
 
         .btn {
             display: inline-block;
             padding: 14px 32px;
-            background-color: #0EC277;
+            background-color: #f59e0b;
             color: #ffffff !important;
             text-decoration: none;
             border-radius: 12px;
             font-weight: 700;
-            margin-top: 25px;
+            margin-top: 20px;
             text-transform: uppercase;
         }
 
         h2 {
             color: #ffffff;
             font-size: 24px;
-            margin-bottom: 16px;
+            margin-bottom: 10px;
             font-weight: 700;
         }
 
@@ -150,39 +110,30 @@
                     <!-- Main Content -->
                     <tr>
                         <td class="content">
-                            <h2>Status Updated</h2>
-                            <p>There has been progress on your request for <strong>{{form_name}}</strong>. Your current
-                                status is now:</p>
+                            <h2>Invoice Due Soon</h2>
+                            <p>This is a friendly reminder that your payment for <strong>{{invoice_id}}</strong> is due in {{days_left}} days. Please complete the payment to avoid any late fees or service interruptions.</p>
 
-                            <div class="status-badge">{{current_status}}</div>
-
-                            <div class="progress-container">
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 50%; --progress: {{progress_percentage}}%; width: var(--progress);"></div>
-                                </div>
-                                <div style="text-align: justify; text-justify: inter-word;">
-                                    <span class="step-label {{step_1_class}}">Received</span>
-                                    <span class="step-label {{step_2_class}}"
-                                        style="text-align: center;">Processing</span>
-                                    <span class="step-label {{step_3_class}}"
-                                        style="text-align: right;">Completed</span>
-                                </div>
+                            <div class="reminder-box">
+                                <div style="color: #f59e0b; font-weight: bold; font-size: 13px; margin-bottom: 5px; text-transform: uppercase;">Amount Due:</div>
+                                <div style="color: #ffffff; font-size: 28px; font-weight: 800;">{{currency_symbol}}{{amount_due}}</div>
+                                <div style="color: #94a3b8; font-size: 14px; margin-top: 5px;">Due by: {{due_date}}</div>
                             </div>
 
-                            <p style="font-size: 14px;">Reference ID: <span
-                                    style="color: #0EC277; font-family: monospace;">{{reference_id}}</span></p>
-
-                            <div style="text-align: center; margin-top: 20px;">
-                                <a href="{{tracking_link}}" class="btn">Track Details</a>
+                            <div style="text-align: center;">
+                                <a href="{{pay_invoice_url}}" class="btn">Pay Now</a>
                             </div>
+
+                            <p style="font-size: 13px; color: #64748b; margin-top: 30px;">
+                                If you've already made this payment, please disregard this email.
+                            </p>
                         </td>
                     </tr>
 
                     <!-- Footer -->
                     <tr>
                         <td class="footer">
-                            <p style="margin-bottom: 10px;">Questions about this update? <a href="#"
-                                    style="color: #0EC277;">Check FAQ</a>.</p>
+                            <p style="margin-bottom: 10px;">Questions about this invoice? <a href="#"
+                                    style="color: #f59e0b;">Contact Billing Support</a>.</p>
                             <p>&copy; 2026 ORR Solutions. All rights reserved.</p>
                         </td>
                     </tr>

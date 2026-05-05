@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Status Update - ORR Solutions</title>
+    <title>Access Granted - ORR Solutions</title>
     <style>
         body {
             margin: 0;
@@ -48,52 +48,13 @@
             color: #94a3b8;
         }
 
-        .status-badge {
-            display: inline-block;
-            padding: 10px 20px;
+        .access-card {
             background-color: #0A1F30;
-            border: 1px solid #0EC277;
-            color: #0EC277;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 16px;
-            margin: 20px 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .progress-container {
-            margin: 30px 0;
-            padding: 20px;
-            background-color: #0A1F30;
+            border: 1px solid rgba(14, 194, 119, 0.2);
             border-radius: 12px;
-        }
-
-        .progress-bar {
-            height: 8px;
-            background-color: #1e293b;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-bottom: 10px;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background-color: #0EC277;
-            border-radius: 4px;
-        }
-
-        .step-label {
-            display: inline-block;
-            width: 32%;
-            font-size: 11px;
-            color: #64748b;
-            text-transform: uppercase;
-        }
-
-        .step-active {
-            color: #0EC277;
-            font-weight: bold;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: left;
         }
 
         .btn {
@@ -104,7 +65,7 @@
             text-decoration: none;
             border-radius: 12px;
             font-weight: 700;
-            margin-top: 25px;
+            margin-top: 20px;
             text-transform: uppercase;
         }
 
@@ -119,6 +80,17 @@
             line-height: 1.6;
             color: #cbd5e1;
             margin-bottom: 20px;
+        }
+
+        .permission-badge {
+            background-color: rgba(14, 194, 119, 0.1);
+            color: #0EC277;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
         }
 
         @media only screen and (max-width: 600px) {
@@ -150,40 +122,33 @@
                     <!-- Main Content -->
                     <tr>
                         <td class="content">
-                            <h2>Status Updated</h2>
-                            <p>There has been progress on your request for <strong>{{form_name}}</strong>. Your current
-                                status is now:</p>
+                            <h2>Document Access Granted</h2>
+                            <p>Permissions have been updated. You now have access to a secured document in the ORR Solutions Vault.</p>
 
-                            <div class="status-badge">{{current_status}}</div>
-
-                            <div class="progress-container">
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 50%; --progress: {{progress_percentage}}%; width: var(--progress);"></div>
-                                </div>
-                                <div style="text-align: justify; text-justify: inter-word;">
-                                    <span class="step-label {{step_1_class}}">Received</span>
-                                    <span class="step-label {{step_2_class}}"
-                                        style="text-align: center;">Processing</span>
-                                    <span class="step-label {{step_3_class}}"
-                                        style="text-align: right;">Completed</span>
+                            <div class="access-card">
+                                <div class="permission-badge">{{permission_level}}</div>
+                                <div style="font-weight: 700; font-size: 18px; color: #ffffff; margin-bottom: 5px;">{{document_name}}</div>
+                                <div style="font-size: 14px; color: #94a3b8;">Shared by: {{sharer_name}}</div>
+                                
+                                <div style="margin-top: 20px; font-size: 13px; color: #cbd5e1; border-top: 1px solid rgba(14, 194, 119, 0.1); padding-top: 15px;">
+                                    <strong>Note:</strong> {{personal_note}}
                                 </div>
                             </div>
 
-                            <p style="font-size: 14px;">Reference ID: <span
-                                    style="color: #0EC277; font-family: monospace;">{{reference_id}}</span></p>
-
-                            <div style="text-align: center; margin-top: 20px;">
-                                <a href="{{tracking_link}}" class="btn">Track Details</a>
+                            <div style="text-align: center;">
+                                <a href="{{document_url}}" class="btn">Access Document</a>
                             </div>
+
+                            <p style="font-size: 13px; color: #64748b; margin-top: 30px;">
+                                If you believe you received this in error, please contact your workspace administrator.
+                            </p>
                         </td>
                     </tr>
 
                     <!-- Footer -->
                     <tr>
                         <td class="footer">
-                            <p style="margin-bottom: 10px;">Questions about this update? <a href="#"
-                                    style="color: #0EC277;">Check FAQ</a>.</p>
-                            <p>&copy; 2026 ORR Solutions. All rights reserved.</p>
+                            <p>&copy; 2026 ORR Solutions Secure Permissions Engine.</p>
                         </td>
                     </tr>
                 </table>

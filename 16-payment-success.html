@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Status Update - ORR Solutions</title>
+    <title>Payment Successful - ORR Solutions</title>
     <style>
         body {
             margin: 0;
@@ -37,7 +37,6 @@
 
         .content {
             padding: 40px 30px;
-            text-align: center;
         }
 
         .footer {
@@ -48,52 +47,35 @@
             color: #94a3b8;
         }
 
-        .status-badge {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #0A1F30;
-            border: 1px solid #0EC277;
-            color: #0EC277;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 16px;
-            margin: 20px 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .progress-container {
-            margin: 30px 0;
-            padding: 20px;
+        .receipt-card {
             background-color: #0A1F30;
             border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 1px solid rgba(14, 194, 119, 0.2);
         }
 
-        .progress-bar {
-            height: 8px;
-            background-color: #1e293b;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-bottom: 10px;
+        .amount-display {
+            text-align: center;
+            margin-bottom: 25px;
         }
 
-        .progress-fill {
-            height: 100%;
-            background-color: #0EC277;
-            border-radius: 4px;
+        .amount {
+            font-size: 36px;
+            font-weight: 800;
+            color: #ffffff;
         }
 
-        .step-label {
-            display: inline-block;
-            width: 32%;
-            font-size: 11px;
-            color: #64748b;
-            text-transform: uppercase;
-        }
-
-        .step-active {
+        .currency {
+            font-size: 18px;
             color: #0EC277;
-            font-weight: bold;
+            vertical-align: super;
+            margin-right: 5px;
+        }
+
+        .item-row {
+            border-bottom: 1px solid rgba(14, 194, 119, 0.1);
+            padding: 12px 0;
         }
 
         .btn {
@@ -104,8 +86,11 @@
             text-decoration: none;
             border-radius: 12px;
             font-weight: 700;
-            margin-top: 25px;
+            margin-top: 20px;
             text-transform: uppercase;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
         }
 
         h2 {
@@ -113,22 +98,22 @@
             font-size: 24px;
             margin-bottom: 16px;
             font-weight: 700;
+            text-align: center;
         }
 
         p {
             line-height: 1.6;
             color: #cbd5e1;
             margin-bottom: 20px;
+            text-align: center;
         }
 
-        @media only screen and (max-width: 600px) {
-            .container {
-                border-radius: 0;
-            }
+        .label { color: #94a3b8; font-size: 12px; text-transform: uppercase; }
+        .value { color: #ffffff; font-weight: 600; text-align: right; }
 
-            .content {
-                padding: 30px 20px;
-            }
+        @media only screen and (max-width: 600px) {
+            .container { border-radius: 0; }
+            .content { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -150,39 +135,44 @@
                     <!-- Main Content -->
                     <tr>
                         <td class="content">
-                            <h2>Status Updated</h2>
-                            <p>There has been progress on your request for <strong>{{form_name}}</strong>. Your current
-                                status is now:</p>
+                            <h2>Payment Confirmed</h2>
+                            <p>Thank you for your business. We've successfully processed your payment for the current billing cycle.</p>
 
-                            <div class="status-badge">{{current_status}}</div>
-
-                            <div class="progress-container">
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 50%; --progress: {{progress_percentage}}%; width: var(--progress);"></div>
-                                </div>
-                                <div style="text-align: justify; text-justify: inter-word;">
-                                    <span class="step-label {{step_1_class}}">Received</span>
-                                    <span class="step-label {{step_2_class}}"
-                                        style="text-align: center;">Processing</span>
-                                    <span class="step-label {{step_3_class}}"
-                                        style="text-align: right;">Completed</span>
-                                </div>
+                            <div class="amount-display">
+                                <span class="currency">{{currency_symbol}}</span><span class="amount">{{amount_paid}}</span>
+                                <div style="color: #0EC277; font-size: 14px; font-weight: 600; margin-top: 5px;">Transaction Successful</div>
                             </div>
 
-                            <p style="font-size: 14px;">Reference ID: <span
-                                    style="color: #0EC277; font-family: monospace;">{{reference_id}}</span></p>
-
-                            <div style="text-align: center; margin-top: 20px;">
-                                <a href="{{tracking_link}}" class="btn">Track Details</a>
+                            <div class="receipt-card">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr class="item-row">
+                                        <td class="label" style="padding: 10px 0;">Invoice Number</td>
+                                        <td class="value" style="padding: 10px 0;">{{invoice_id}}</td>
+                                    </tr>
+                                    <tr class="item-row">
+                                        <td class="label" style="padding: 10px 0;">Payment Date</td>
+                                        <td class="value" style="padding: 10px 0;">{{payment_date}}</td>
+                                    </tr>
+                                    <tr class="item-row">
+                                        <td class="label" style="padding: 10px 0;">Payment Method</td>
+                                        <td class="value" style="padding: 10px 0;">{{payment_method}}</td>
+                                    </tr>
+                                </table>
                             </div>
+
+                            <a href="{{invoice_url}}" class="btn">Download Receipt (PDF)</a>
+
+                            <p style="font-size: 13px; color: #64748b; margin-top: 30px;">
+                                This payment will appear on your statement as <strong>ORR SOLUTIONS</strong>.
+                            </p>
                         </td>
                     </tr>
 
                     <!-- Footer -->
                     <tr>
                         <td class="footer">
-                            <p style="margin-bottom: 10px;">Questions about this update? <a href="#"
-                                    style="color: #0EC277;">Check FAQ</a>.</p>
+                            <p style="margin-bottom: 10px;">Having trouble? <a href="#"
+                                    style="color: #0EC277;">Contact Billing</a>.</p>
                             <p>&copy; 2026 ORR Solutions. All rights reserved.</p>
                         </td>
                     </tr>
