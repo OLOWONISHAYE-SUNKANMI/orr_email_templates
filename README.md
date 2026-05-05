@@ -60,6 +60,13 @@ Calendar synchronization and Google Meet integration.
 - `30-meeting-rescheduled.html`
 - `31-meeting-cancelled.html`
 
+### 7. System Notifications & Alerts
+Internal monitoring and security escalation.
+- `32-system-error.html`
+- `33-webhook-failure.html`
+- `34-security-alert.html`
+- `35-access-revoked.html`
+
 ## 🛠 Integration Notes
 
 - **Variables**: All templates use standard `{{variable_name}}` placeholders.
